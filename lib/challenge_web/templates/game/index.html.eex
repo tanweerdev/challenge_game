@@ -1,0 +1,22 @@
+<h1>Welcome! <span id="name"><%= @name || "Guest" %></span></h1>
+
+<div class="wrapper">
+    <%= for row <- -1..10 do %>
+        <div class="parent row-<%= row %>">
+            <%= for col <- -1..10 do %>
+                <%= if row in [-1,10] || col in [-1,10] || (row == 5 && col ==5) || (row == 5 && col == 4) || (row == 5 && col == 3) || (row == 5 && col == 2) || (row == 5 && col == 6) || (row == 6 && col == 4)do %>
+                    <div id="row-<%= row %>_col-<%= col %>" class="hw-50 col-<%= col %> not-walk-able"></div>
+                <% else %>
+                    <div id="row-<%= row %>_col-<%= col %>" class="hw-50 col-<%= col %>"></div>
+                <%end%>
+            <%end%>
+        </div>
+    <%end%>
+</div>
+<div class="controls">
+    <button class="btn movement" direction="left">LEFT</button>
+    <button class="btn movement" direction="down">DOWN</button>
+    <button class="btn movement" direction="up">UP</button>
+    <button class="btn movement" direction="right">RIGHT</button>
+    <button class="danger attack-btn btn">ATTACK</button>
+</div>
